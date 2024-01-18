@@ -25,12 +25,12 @@
 				<td>[[${transaction.retailer}]]</td>
 				<td>
 					<span th:if="${transaction.type =='C'}">[[${transaction.amount}]]</span> 
-					<span th:if="${transaction.type =='D'}">[[${transaction.amount}]]</span>
+					<span th:unless="${transaction.type =='D'}"></span>
 				</td> 
 				<td>
-					<span th:if="${transaction.type =='C'}">[[${transaction.amount}]]</span> 
 					<span th:if="${transaction.type =='D'}">[[${transaction.amount}]]</span>
-				</td> 
+					<span th:unless="${transaction.type =='C'}"></span> 
+				</td>
 			</tr>
 		</tbody>
 	</table>
