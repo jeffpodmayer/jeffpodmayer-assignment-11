@@ -1,17 +1,27 @@
 <html xmlns:th="http://thymeleaf.org">
 
 <head>
-    <title>Transaction Details</title>
+    <title>Transaction # [[${transaction.id}]] Details</title>
     <link rel="stylesheet" href="/css/transactions.css" />
 </head>
 
 <body>
-    <div method="get">
-        <h2>Transaction ID: [[${transaction.id}]] [[${transaction.type}]] </h2>
-        <p> Date: [[${transaction.date}]]</p>
-        <p>Amount: [[${transaction.amount}]]</p>
-        <p>Description: [[${transaction.retailer}]]</p>
+    <div>
+        <h2>Transaction ID: [[${transaction.id}]]
+            <span th:if="${transaction.type =='D'}">(Debit)</span>
+            <span th:if="${transaction.type =='C'}">(Credit)</span>
+        </h2>
+        <p>
+            <strong>Date: </strong>[[${transaction.date}]]
+            <br />
+            <strong>Amount: </strong>
+            <span th:if="${transaction.type =='D'}">[[${transaction.amount}]]</span>
+            <span th:if="${transaction.type =='C'}">-[[${transaction.amount}]]</span>
+            <br />
+            <strong>Description: </strong>[[${transaction.retailer}]]
+        </p>
         <div><a th:href="@{/transactions}">Back</a></div>
     </div>
 </body>
+
 </html>

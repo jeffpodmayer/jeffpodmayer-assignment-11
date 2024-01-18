@@ -19,17 +19,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="transaction : ${transactions}" th:inline="text">
-				<td><a th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}">[[${transaction.id}]]</a></td>
-				<td>[[${transaction.date}]]</td>
-				<td>[[${transaction.retailer}]]</td>
+			<tr th:each="transaction : ${transactions}">
+				<td><a th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}" th:text="${transaction.id}"></a></td>
+				<td th:text="${transaction.date}"></td>
+				<td th:text="${transaction.retailer}"></td>
 				<td>
-					<span th:if="${transaction.type =='C'}">[[${transaction.amount}]]</span> 
-					<span th:unless="${transaction.type =='D'}"></span>
+					<span th:if="${transaction.type =='C'}" th:text="${transaction.amount}"></span> 
 				</td> 
 				<td>
-					<span th:if="${transaction.type =='D'}">[[${transaction.amount}]]</span>
-					<span th:unless="${transaction.type =='C'}"></span> 
+					<span th:if="${transaction.type =='D'}" th:text="${transaction.amount}"></span>
 				</td>
 			</tr>
 		</tbody>
