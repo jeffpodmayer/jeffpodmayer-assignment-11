@@ -16,7 +16,7 @@ public class TransactionService {
 	@Autowired
 	private TransactionRepository transactionRepo;
 	
-	public List<Transaction> findAllAndSortByDate() {
+	public List<Transaction> getTransactionsAndSortByDate() {
 		List<Transaction> transactions = transactionRepo.findAll();
 		return transactions.stream()
 						   .sorted(Comparator.comparing(Transaction::getDate))

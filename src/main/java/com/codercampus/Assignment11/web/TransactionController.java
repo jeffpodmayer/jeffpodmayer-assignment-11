@@ -19,7 +19,7 @@ public class TransactionController {
 	
 	@GetMapping("/transactions")
 	public String getTransactions(ModelMap model) {
-		List<Transaction> transactions = transactionService.findAllAndSortByDate();
+		List<Transaction> transactions = transactionService.getTransactionsAndSortByDate();
 		model.put("transactions", transactions);
 		return "transactions"; 
 	}

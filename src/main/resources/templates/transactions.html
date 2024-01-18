@@ -20,7 +20,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="transaction : ${transactions}">
-				<td><a th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}" th:text="${transaction.id}"></a></td>
+				<td><a th:text="${transaction.id}" th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}"></a></td>
 				<td th:text="${transaction.date}"></td>
 				<td th:text="${transaction.retailer}"></td>
 				<td>
