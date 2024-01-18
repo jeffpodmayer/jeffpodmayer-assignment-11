@@ -1,0 +1,17 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Transaction Details</title>
+    <link rel="stylesheet" href="/css/transactions.css" />
+</head>
+
+<body>
+    <div method="get">
+        <h2>Transaction ID: [[${transaction.id}]] [[${transaction.type}]] </h2>
+        <p> Date: [[${transaction.date}]]</p>
+        <p>Amount: [[${transaction.amount}]]</p>
+        <p>Description: [[${transaction.retailer}]]</p>
+        <div><a th:href="@{/transactions}">Back</a></div>
+    </div>
+</body>
+</html>

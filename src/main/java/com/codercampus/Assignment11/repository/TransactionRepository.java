@@ -22,6 +22,10 @@ public class TransactionRepository {
 	public List<Transaction> findAll () {
 		return transactions;
 	}
+	
+	public Transaction findById(Integer transactionId) {
+		return transactions.get(transactionId-1);
+	}
 
 	/*
 	 * To populate the transactions list with previously "serialized" data from the transactions.txt file
