@@ -26,7 +26,10 @@ public class TransactionRepository {
 	}
 	
 	public Transaction findById(Integer transactionId) {
-		return transactions.get(transactionId);
+		return transactions.stream()
+						   .filter(t -> t.getId().equals((long)transactionId))
+						   .findAny()
+						   .orElse(null);
 	}
 
 	/*

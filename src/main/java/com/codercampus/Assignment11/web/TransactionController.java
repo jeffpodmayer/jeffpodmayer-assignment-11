@@ -13,22 +13,22 @@ import com.codercampus.Assignment11.service.TransactionService;
 
 @Controller
 public class TransactionController {
-	
+
 	@Autowired
 	private TransactionService transactionService;
-	
+
 	@GetMapping("/transactions")
 	public String getTransactions(ModelMap model) {
 		List<Transaction> transactions = transactionService.getTransactionsAndSortByDate();
 		model.put("transactions", transactions);
-		return "transactions"; 
+		return "transactions";
 	}
-	
+
 	@GetMapping("/transactions/{transactionId}")
 	public String getTransaction(@PathVariable Integer transactionId, ModelMap model) {
 		Transaction transaction = transactionService.findById(transactionId);
 		model.put("transaction", transaction);
 		return "transaction-details";
-			
 	}
+
 }

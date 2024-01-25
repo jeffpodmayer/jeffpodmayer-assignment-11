@@ -24,7 +24,7 @@ public class TransactionService {
 	}
 	
 	public Transaction findById(Integer transactionId) {
-		return transactionRepo.findById(transactionId-1);
+		return transactionRepo.findById(transactionId);
 	}
 	
 }

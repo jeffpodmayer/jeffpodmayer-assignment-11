@@ -7,19 +7,24 @@
 
 <body>
     <div>
-        <h2>Transaction ID: [[${transaction.id}]]
-            <span th:if="${transaction.type =='D'}">(Debit)</span>
-            <span th:if="${transaction.type =='C'}">(Credit)</span>
-        </h2>
-        <p>
-            <strong>Date: </strong>[[${transaction.date}]]
-            <br />
-            <strong>Amount: </strong>
-            <span th:if="${transaction.type =='D'}">[[${transaction.amount}]]</span>
-            <span th:if="${transaction.type =='C'}">-[[${transaction.amount}]]</span>
-            <br />
-            <strong>Description: </strong>[[${transaction.retailer}]]
-        </p>
+        <div th:if="${transaction != null}">
+            <h2>Transaction ID: [[${transaction.id}]]
+                <span th:if="${transaction.type =='D'}">(Debit)</span>
+                <span th:if="${transaction.type =='C'}">(Credit)</span>
+            </h2>
+            <p>
+                <strong>Date: </strong>[[${transaction.date}]]
+                <br />
+                <strong>Amount: </strong>
+                <span th:if="${transaction.type =='D'}">[[${transaction.amount}]]</span>
+                <span th:if="${transaction.type =='C'}">-[[${transaction.amount}]]</span>
+                <br />
+                <strong>Description: </strong>[[${transaction.retailer}]]
+            </p>
+        </div>
+        <div th:unless="${transaction != null}">
+            <h2>Transaction not found!!! Sorry about that!</h2>
+        </div>
         <div><a th:href="@{/transactions}">Back</a></div>
     </div>
 </body>
