@@ -1,7 +1,12 @@
 <html xmlns:th="http://thymeleaf.org">
 
 <head>
-    <title>Transaction #[[${transaction.id}]] Details</title>
+    <div th:if="${transaction != null}">
+        <title>Transaction #[[${transaction.id}]] Details</title>
+    </div>
+    <div th:unless="${transaction != null}">
+        <title>Details Not Found</title>
+    </div>
     <link rel="stylesheet" href="/css/transactions.css" />
 </head>
 
